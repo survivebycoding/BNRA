@@ -1,6 +1,7 @@
 In the folder you will have the following:
-    1. bnra.m - BNRA MATLAB script</li>
-    2. sample - folder containing some signaling pathways from KEGG in XML format</li> 
+
+    1. bnra.m - BNRA MATLAB script
+    2. sample - folder containing some signaling pathways from KEGG in XML format 
  
 1. Open Matlab on Windows.
 
