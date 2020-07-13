@@ -8,7 +8,6 @@ definput = {'ko04141'};
 answer = inputdlg(prompt,title1,dims,definput);
 filename1=strcat('D:\rishika\4_work_boolean_logic\KEGG_data\',answer,'.xml');
 filename=char(filename1);
-%filename='E:\rishika\4_work_boolean_logic\KEGG_data\ath04626.xml';
 fid=fopen(filename);
 filename
 line1=fgets(fid);
@@ -44,60 +43,10 @@ while ischar(line1) && temp==0
 end
 fclose(fid);
 g=unique(nodes);
-%g
-% nodes1=[[4 1]
-% [4 2]
-% [3 4]
-% [4 5]
-% [4 6]
-% [4 7]
-% [4 8]
-% [4 9]
-% [4 10]
-% [4 11]
-% [4 12]
-% [4 13]
-% [4 14]
-% [4 15]
-% [4 16]
-% [4 17]
-% [4 18]
-% [8 3]
-% [14 16]
-% [16 18]
-%     ];
-% edges1={'activation'
-% 'activation'
-% 'activation'
-% 'activation'
-% 'activation'
-% 'activation'
-% 'activation'
-% 'activation'
-% 'activation'
-% 'activation'
-% 'activation'
-% 'activation'
-% 'activation'
-% 'activation'
-% 'activation'
-% 'activation'
-% 'activation'
-% 'binding/association'
-% 'binding/association'
-% 'binding/association'
-%     };
 
 node_list=nodes;
 edge_list=edges;
-% nodes=nodes1;
-% edges=edges1;
 
-% [values, order] = sort(nodes(:,1));
-% sortednode = nodes(order,:);
-% sortededge = edges(order);
-% nodes=sortednode;
-% edges=sortededge;
 %% Finding node numbers
 fid=fopen(filename);
 line1=fgets(fid);
@@ -607,30 +556,6 @@ while h<=km
         end
         temp=temp1;
         temp1=[];
-        %temp
-        %break
-%     elseif strcmp(edges(node_to_be_added,1),'binding/association') == 1 && flag_bind == 0
-%         
-%         v=1;
-%         %temp
-%         disp('binding/association');
-%         [m,n]=size(temp);
-%         
-%         temp1=[];
-%         while v<=m
-%          x=temp(v,u_index)+temp(v,c_index);
-%         if x == 2 || x == 0
-%             
-%             c=c+1;
-%             temp1(c,:)=temp(v,:);
-%             c=c+1;
-%             else
-%             %disp('not going');
-%         end
-%             v=v+1;
-%         end
-%         temp=temp1;
-%         temp1=[];
         
     elseif strcmp(edges(node_to_be_added,1),'dissociation')==1
         v=1;
@@ -751,22 +676,6 @@ end
 parfor t=1:length(cyc)
     fprintf('Cycles of size %d before perturbation %d \n', t+2,cyc(t));
 end
-% [x,y]=size(size_final);
-% stable_state_count=1;
-% parfor i=1:x
-%     if size_final(i,1)>0
-%      stable_state_count=stable_state_count*size_final(i,1);
-%     end
-% end
-% stable_state_count
-% 
-% final_score=[];
-%     sum=0.0;
-%     parfor z1=1:length(out3)
-%      %sum=sum+(size_final(z1,1)/out3(1,z1));  
-%      sum=sum+(size_final(z1,1)/(2^size_final(z1,2)));
-%     end
-%     fprintf('Final score %d \n', sum/length(out3));
 if isempty(mute_temp)==0
     
     f=unique(mute_temp(1:s-1,3));
@@ -786,12 +695,7 @@ if isempty(mute_temp)==0
         
         a = unique(x);
         out = [a,histc(x(:),a)];
-        %out
-%         l1=x(:,1).';
-%         l2=x(:,2).';
-%         G = graph(l1, l2);
-%         plot(G)
-%         hold on
+       
     end
     x=mute_temp(1:s-1,1:2);
     a = unique(x);
@@ -801,12 +705,6 @@ if isempty(mute_temp)==0
     x=mute_temp(1:s-1,4);
     a = unique(mute_temp(1:s-1,4));
     out1 = [a,histc(x(:),a)];
-%     final_score=[];
-%     sum=0.0;
-%     for i1=1:length(out3)
-%      sum=sum+(size_final(i1,1)/out3(1,i1));
-%     end
-%     fprintf('Final score %d \n', sum);
 else
     disp('No mutation!')
     
@@ -830,8 +728,7 @@ for i=1:length(a)
            c=c+1;
        end
     end
-    %l1
-    %l2
+   
     G1=[];
     tt=strcat('Subplot for ',num2str(a(i)));
     G1 = graph(l1.', l2.');
@@ -842,19 +739,6 @@ end
 suptitle('Before perturbation');
 end
 
-% l3=mute_temp(1:2,1).';
-% l4=mute_temp(1:2,2).';
-% G1 = graph(l3, l4);
-% subplot(2,2,1)
-% plot(G1)
-% title('Subplot %d',1);
-% %hold on
-% l3=mute_temp(3:66,1).';
-% l4=mute_temp(3:66,2).';
-% G2 = graph(l3, l4);
-% subplot(2,2,2)
-% plot(G2)
-% title('Subplot %d',2);
     %------------------------------------------------------------------------------------
     disp('---------------Perturbation-------------------');
     %dynamic change in network
@@ -884,9 +768,7 @@ end
     y
     %--------------------
     score_list=[];
-%    for i4=1:length(gene_num_list)-1
-%        for i5=1:length(interactions)
-%    clear x y z  cyc1  initial_tempfinal a b c;      
+ 
     x= gene_num_list(indx+1,1);
     y=555;
     z=interactions(1,indx1); %interaction type
@@ -1007,9 +889,9 @@ end
             
             i
             f=mute_temp2(:,1:2);
-            p=cycleCountBacktrack('edgeList', f, 20);
+            %p=cycleCountBacktrack('edgeList', f, 20);
             for i4=1:length(p)
-               cyc1(i4)=cyc1(i4)+p(i4);
+               cyc1(i4)=cyc1(i4);%+p(i4);
             end
             p=[];
             mute_temp2=[];
@@ -1051,8 +933,6 @@ for i=1:length(a)
        end
     end
     
-    %l1
-    %l2
     G1=[];
     G1 = graph(l1.', l2.');
     tt=strcat('Subplot for ',num2str(a(i)));
@@ -1061,11 +941,6 @@ for i=1:length(a)
     title(tt)
 end
 end
-    
-%end
-suptitle('After perturbation');
-%    end
 
-%load gong
-%sound(y,Fs)
+suptitle('After perturbation');
 min(score_list)
